@@ -1,6 +1,8 @@
-# Vintage Camera Portfolio
+# Vintage Camera Portfolio - Template
 
 An immersive portfolio website that simulates the interior of a vintage film camera, featuring an interactive film strip navigation system. The site combines nostalgic design elements with modern web technologies to create a unique browsing experience.
+
+This project can also be used as a **template** for creating similar portfolio websites with unique, interactive designs.
 
 ## Features
 
@@ -23,6 +25,11 @@ An immersive portfolio website that simulates the interior of a vintage film cam
 ### Home Page
 ![Home Page Placeholder](screenshots/home-page-placeholder.png)
 
+### About Section
+![About Section Placeholder](screenshots/about-section-placeholder.png)
+
+### Project Details
+![Project Details Placeholder](screenshots/project-details-placeholder.png)
 
 ## Technical Implementation
 
