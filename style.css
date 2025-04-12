@@ -1,0 +1,517 @@
+:root {
+    --camera-body: #1A1A1A;
+    --camera-metal: #D0D0D0;
+    --camera-accent: #E53935;
+    --film-strip: #E8E6E1;
+    --film-text: #333333;
+    --sprocket-hole: #555555;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier Prime', monospace;
+    background-color: var(--camera-body);
+    color: #fff;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Main camera interior */
+.camera-interior {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 50% 0%, #333 0%, #111 70%);
+}
+
+/* Camera lens vignette effect */
+.camera-interior::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, transparent 30%, rgba(0,0,0,0.7) 100%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Film strip container - full width now */
+.film-strip-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    z-index: 1;
+    scroll-snap-type: y mandatory;
+}
+
+.film-strip-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome/Safari */
+}
+
+/* The film strip takes up full width */
+.film-strip {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 100px;
+    position: relative;
+}
+
+/* Film markings */
+.film-border {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* Left film sprocket holes */
+.sprocket-holes-left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 40px;
+    background-color: var(--film-strip);
+    z-index: 5;
+    overflow: hidden;
+    box-shadow: inset -5px 0 10px rgba(0,0,0,0.2);
+}
+
+.sprocket-holes-left::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 1000%; /* Extra long to account for scrolling */
+    background-image: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 30px,
+        var(--sprocket-hole) 30px,
+        var(--sprocket-hole) 50px
+    );
+}
+
+/* Right film sprocket holes */
+.sprocket-holes-right {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 40px;
+    background-color: var(--film-strip);
+    z-index: 5;
+    overflow: hidden;
+    box-shadow: inset 5px 0 10px rgba(0,0,0,0.2);
+}
+
+.sprocket-holes-right::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 1000%; /* Extra long to account for scrolling */
+    background-image: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 30px,
+        var(--sprocket-hole) 30px,
+        var(--sprocket-hole) 50px
+    );
+}
+
+/* Film frames now full width */
+.frame {
+    width: 80%;
+    max-width: 900px;
+    height: 80vh;
+    margin: 20px 0;
+    background-color: var(--film-strip);
+    border: 2px solid #444;
+    border-radius: 5px;
+    color: var(--film-text);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    scroll-snap-align: center;
+}
+
+.frame-header {
+    padding: 15px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.frame-content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+.frame-image {
+    width: 100%;
+    height: 50%;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.frame-desc {
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: center;
+    padding: 0 10px;
+    max-width: 600px;
+}
+
+/* Frame counter */
+.frame-counter {
+    position: fixed;
+    top: 20px;
+    right: 60px;
+    background-color: #111;
+    border: 2px solid var(--camera-metal);
+    border-radius: 4px;
+    padding: 5px 15px;
+    font-size: 24px;
+    color: var(--camera-accent);
+    z-index: 10;
+    font-family: 'Digital-7', monospace;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+/* Camera controls overlay */
+.camera-controls {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: rgba(34, 34, 34, 0.8);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 60px;
+    z-index: 10;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.5);
+}
+
+.control {
+    width: 60px;
+    height: 60px;
+    background-color: var(--camera-metal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    color: #222;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.control:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}
+
+.control:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+#shutter-button {
+    background-color: var(--camera-accent);
+    color: white;
+    width: 70px;
+    height: 70px;
+    font-size: 14px;
+}
+
+/* Film grain overlay */
+.film-grain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.1 0"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
+    pointer-events: none;
+    opacity: 0.08;
+    z-index: 15;
+}
+
+/* Rewind lever */
+.rewind-lever {
+    position: fixed;
+    top: 20px;
+    left: 60px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--camera-metal);
+    border-radius: 50%;
+    z-index: 10;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.rewind-lever::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    background-color: #333;
+    border-radius: 50%;
+}
+
+.rewind-lever:hover {
+    transform: rotate(30deg);
+}
+
+/* Welcome Frame */
+.welcome-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--film-strip);
+}
+
+.welcome-frame h1 {
+    margin-bottom: 30px;
+    font-size: 40px;
+    color: #333;
+}
+
+.welcome-frame p {
+    font-size: 20px;
+    margin-bottom: 50px;
+    color: #555;
+}
+
+.scroll-indicator {
+    animation: bounce 1.5s infinite;
+    font-size: 32px;
+    color: var(--camera-accent);
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(15px); }
+}
+
+/* Film exposure effect during transitions */
+.exposure-flash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 20;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+/* Expanded project view */
+.expanded-view {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.85);
+    z-index: 100;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.expanded-content {
+    width: 80%;
+    max-width: 1000px;
+    height: 80vh;
+    background-color: var(--film-strip);
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.expanded-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+.expanded-header h2 {
+    font-size: 32px;
+    color: #333;
+}
+
+.close-button {
+    font-size: 32px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #eee;
+    transition: background-color 0.2s ease;
+}
+
+.close-button:hover {
+    background-color: #ddd;
+}
+
+.expanded-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.expanded-image {
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .frame {
+        width: 90%;
+        height: 70vh;
+    }
+    
+    .frame-header {
+        font-size: 20px;
+        padding: 10px;
+    }
+    
+    .frame-desc {
+        font-size: 16px;
+    }
+    
+    .sprocket-holes-left, .sprocket-holes-right {
+        width: 30px;
+    }
+    
+    .camera-controls {
+        padding: 0 40px;
+    }
+    
+    .control {
+        width: 50px;
+        height: 50px;
+    }
+    
+    #shutter-button {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .frame {
+        width: 95%;
+        height: 60vh;
+    }
+    
+    .frame-header {
+        font-size: 18px;
+    }
+    
+    .frame-desc {
+        font-size: 14px;
+    }
+    
+    .sprocket-holes-left, .sprocket-holes-right {
+        width: 20px;
+    }
+    
+    .frame-counter {
+        right: 30px;
+        font-size: 18px;
+    }
+    
+    .rewind-lever {
+        left: 30px;
+        width: 30px;
+        height: 30px;
+    }
+    
+    .camera-controls {
+        height: 70px;
+        padding: 0 25px;
+    }
+    
+    .control {
+        width: 40px;
+        height: 40px;
+        font-size: 10px;
+    }
+    
+    #shutter-button {
+        width: 50px;
+        height: 50px;
+        font-size: 12px;
+    }
+}

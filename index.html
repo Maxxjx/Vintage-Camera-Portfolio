@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film Camera Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
+</head>
+<body>
+    <div class="camera-interior">
+        <!-- Film strip container (full viewport) -->
+        <div class="film-strip-container" id="filmStrip">
+            <div class="film-strip">
+                <!-- Welcome Frame -->
+                <div class="frame welcome-frame">
+                    <h1>THROUGH MY LENS</h1>
+                    <p>Scroll to explore my portfolio</p>
+                    <div class="scroll-indicator">↓</div>
+                </div>
+                
+                <!-- About Frame -->
+                <div class="frame" data-title="About Me" data-content="I'm a creative designer and developer with a passion for crafting unique digital experiences. My background in photography and visual arts influences my approach to web design, focusing on storytelling through interactive elements and visual composition.<br><br>With several years of experience in both front-end development and UI/UX design, I create websites that not only look beautiful but also provide intuitive and memorable user experiences.<br><br>When I'm not coding or designing, you can find me exploring with my camera, experimenting in the darkroom, or searching for vintage film cameras to add to my collection.">
+                    <div class="frame-header">ABOUT ME</div>
+                    <div class="frame-content">
+                        <div class="frame-image" style="background-image: url('/api/placeholder/800/400')"></div>
+                        <div class="frame-desc">
+                            Creative developer with a passion for unique digital experiences and visual storytelling. My work combines technical precision with artistic vision.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Frames -->
+                <div class="frame" data-title="Camera Portfolio Site" data-content="A self-referential portfolio website designed to resemble the interior of a vintage film camera. Users navigate through projects by scrolling a film strip, creating an immersive and memorable browsing experience.<br><br>The design incorporates authentic camera details like sprocket holes, film grain texture, and mechanical controls. Each project appears as a frame on the film, with expanding views for detailed information.<br><br>Built with: HTML5, CSS3, JavaScript<br><br>Key features:<br>- Interactive film strip navigation<br>- Authentic camera interior visualization<br>- Responsive design that maintains the camera metaphor across all devices<br>- Custom animations that mimic camera mechanics">
+                    <div class="frame-header">CAMERA PORTFOLIO</div>
+                    <div class="frame-content">
+                        <div class="frame-image" style="background-image: url('/api/placeholder/800/400')"></div>
+                        <div class="frame-desc">
+                            An immersive portfolio website that recreates the experience of looking inside a vintage film camera, with projects displayed on an interactive film strip.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="frame" data-title="Analog Photography App" data-content="A mobile application designed for film photography enthusiasts. This app helps photographers track their film rolls, camera settings, and developing processes.<br><br>Users can log each shot they take with details like aperture, shutter speed, and lighting conditions. After developing, they can match the results with their notes to improve their technique.<br><br>Built with: React Native, Firebase<br><br>Key features:<br>- Film roll tracking with frame-by-frame notes<br>- Camera and lens database<br>- Light meter integration<br>- Developing timer and recipe storage<br>- Community sharing of results and techniques">
+                    <div class="frame-header">ANALOG PHOTO APP</div>
+                    <div class="frame-content">
+                        <div class="frame-image" style="background-image: url('/api/placeholder/800/400')"></div>
+                        <div class="frame-desc">
+                            Mobile application for film photography enthusiasts to track their shots, camera settings, and developing processes.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="frame" data-title="Vintage Camera E-commerce" data-content="A clean, modern e-commerce platform for a boutique camera shop specializing in vintage and film photography equipment.<br><br>The design emphasizes product photography and detailed specifications while maintaining an elegant, minimalist aesthetic that lets the cameras themselves be the focus.<br><br>Built with: React, Node.js, MongoDB<br><br>Key features:<br>- Advanced filtering by camera type, format, brand, and era<br>- Detailed product specifications and condition reports<br>- Wishlist and collection management<br>- Seamless checkout process<br>- Admin dashboard for inventory management">
+                    <div class="frame-header">CAMERA SHOP</div>
+                    <div class="frame-content">
+                        <div class="frame-image" style="background-image: url('/api/placeholder/800/400')"></div>
+                        <div class="frame-desc">
+                            E-commerce platform for a boutique vintage camera shop with focus on exceptional product presentation and user experience.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skills Frame -->
+                <div class="frame" data-title="Skills & Expertise" data-content="<strong>Design:</strong><br>- UI/UX Design<br>- Wireframing & Prototyping<br>- Visual Design<br>- Brand Identity<br>- Typography<br>- Color Theory<br><br><strong>Development:</strong><br>- HTML5, CSS3, JavaScript<br>- React & React Native<br>- Node.js<br>- MongoDB<br>- Responsive Web Design<br>- Performance Optimization<br><br><strong>Tools:</strong><br>- Figma<br>- Adobe Creative Suite<br>- VS Code<br>- Git & GitHub<br>- Webpack<br>- Jest">
+                    <div class="frame-header">SKILLS</div>
+                    <div class="frame-content">
+                        <div class="frame-image" style="background-image: url('/api/placeholder/800/400')"></div>
+                        <div class="frame-desc">
+                            My technical toolkit spans design and development, enabling me to create cohesive experiences from concept to implementation.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Frame -->
+                <div class="frame" data-title="Contact Me" data-content="I'm always interested in hearing about new projects and opportunities. Whether you have a specific project in mind or just want to connect, feel free to reach out!<br><br><strong>Email:</strong> hello@example.com<br><strong>LinkedIn:</strong> linkedin.com/in/yourname<br><strong>GitHub:</strong> github.com/yourusername<br><strong>Instagram:</strong> @yourusername<br><br>Based in [Your City], but available for remote work worldwide.">
+                    <div class="frame-header">CONTACT</div>
+                    <div class="frame-content">
+                        <div class="frame-image" style="background-image: url('/api/placeholder/800/400')"></div>
+                        <div class="frame-desc">
+                            Let's connect and discuss how we can work together to create something amazing. I'm available for freelance projects, collaborations, and full-time opportunities.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Film border elements -->
+        <div class="film-border">
+            <div class="sprocket-holes-left"></div>
+            <div class="sprocket-holes-right"></div>
+        </div>
+        
+        <!-- Frame counter -->
+        <div class="frame-counter" id="frameCounter">01</div>
+        
+        <!-- Rewind lever -->
+        <div class="rewind-lever" id="rewindLever"></div>
+        
+        <!-- Camera controls -->
+        <div class="camera-controls">
+            <div class="control" id="mode-button">ISO</div>
+            <div class="control" id="aperture-button">F/2.8</div>
+            <div class="control" id="shutter-button">SHUTTER</div>
+            <div class="control" id="advance-button">ADV</div>
+        </div>
+    </div>
+    
+    <!-- Expanded project view -->
+    <div class="expanded-view" id="expandedView">
+        <div class="expanded-content">
+            <div class="expanded-header">
+                <h2 id="expandedTitle">Project Title</h2>
+                <div class="close-button" id="closeButton">&times;</div>
+            </div>
+            <div class="expanded-body" id="expandedBody">
+                <div class="expanded-image" id="expandedImage" style="background-image: url('/api/placeholder/800/400')"></div>
+                <div id="expandedText">Project details will appear here.</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Film grain overlay -->
+    <div class="film-grain"></div>
+    
+    <!-- Exposure flash effect -->
+    <div class="exposure-flash" id="exposureFlash"></div>
+    
+</body>
+</html>
