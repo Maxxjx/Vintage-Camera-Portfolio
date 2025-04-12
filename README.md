@@ -23,11 +23,6 @@ An immersive portfolio website that simulates the interior of a vintage film cam
 ### Home Page
 ![Home Page Placeholder](screenshots/home-page-placeholder.png)
 
-### About Section
-![About Section Placeholder](screenshots/about-section-placeholder.png)
-
-### Project Details
-![Project Details Placeholder](screenshots/project-details-placeholder.png)
 
 ## Technical Implementation
 
