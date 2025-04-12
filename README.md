@@ -23,13 +23,13 @@ This project can also be used as a **template** for creating similar portfolio w
 ## Screenshots
 
 ### Home Page
-![Home Page Placeholder](screenshots/home-page-placeholder.png)
+![Home Page Placeholder](assets/home-page-placeholder.png)
 
 ### About Section
-![About Section Placeholder](screenshots/about-section-placeholder.png)
+![About Section Placeholder](assets/about-section-placeholder.png)
 
 ### Project Details
-![Project Details Placeholder](screenshots/project-details-placeholder.png)
+![Project Details Placeholder](assets/project-details-placeholder.png)
 
 ## Technical Implementation
 
