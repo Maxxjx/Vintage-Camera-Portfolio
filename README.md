@@ -22,14 +22,15 @@ This project can also be used as a **template** for creating similar portfolio w
 
 ## Screenshots
 
-### Home Page
-![Home Page Placeholder](assets/home-page-placeholder.png)
+!| Home Page | About Section |
+|:---------:|:----------:|
+| ![Home Page](assets/home-page-placeholder.png) | ![About Section](assets/about-section-placeholder.png) |
 
-### About Section
-![About Section Placeholder](assets/about-section-placeholder.png)
+| Project Details | skills section |
+|:-----------:|:--------:|
+| ![Project Details](assets/project-details-placeholder.png) | ![4skills section ](assets/skills-section.png) |
 
-### Project Details
-![Project Details Placeholder](assets/project-details-placeholder.png)
+
 
 ## Technical Implementation
 
